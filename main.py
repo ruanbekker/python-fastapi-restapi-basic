@@ -25,7 +25,7 @@ def get_students():
     return database
 
 @app.get('/students/{student_userid}')
-def get_city(student_userid: str):
+def get_student(student_userid: str):
     return [student for student in database if student['userid'] == student_userid]
 
 @app.post('/students')
