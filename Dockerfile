@@ -1,5 +1,7 @@
 FROM python:3.8-alpine
 
+ENV ADMIN_EMAIL "root@localhost"
+
 RUN adduser -D app
 WORKDIR /home/app
 
