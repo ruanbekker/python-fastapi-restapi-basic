@@ -18,7 +18,7 @@ class Student(BaseModel):
     email: str
 
 @app.get('/')
-def index():
+async def read_index():
     return {'msg': 'welcome'}
 
 @app.get("/info")
