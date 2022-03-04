@@ -12,13 +12,13 @@ This is a example using fastapi using python directly or using docker-compose.
 
 Build:
 
-```
+```bash
 $ docker-compose build
 ```
 
 Start:
 
-```
+```bash
 $ docker-compose up
 ```
 
@@ -34,15 +34,32 @@ $ source .venv/bin/activate
 
 Install dependecies:
 
-```
+```bash
 $ python3 -m pip install -r requirements.pip
+```
+
+### Tests
+
+Run tests using pytest:
+
+```bash
+$ pytest 
+=============================================== test session starts ===============================================
+platform darwin -- Python 3.7.12, pytest-7.0.1, pluggy-1.0.0
+rootdir: /Users/ruan/git/python-fastapi-restapi-basic
+plugins: anyio-3.3.4
+collected 1 item                                                                                                  
+
+tests/test_main.py .                                                                                    [100%]
+
+================================================ 1 passed in 0.30s ================================================
 ```
 
 ### Start the Server
 
 Start the application:
 
-```
+```bash
 $ hypercorn main:app --reload
 ```
 
@@ -50,14 +67,14 @@ $ hypercorn main:app --reload
 
 Seed the in-memory database:
 
-```
+```bash
 $ curl -XPOST http://localhost:8000/seed
 {"msg":"seeded 3 users"}
 ```
 
 Get all the students:
 
-```
+```bash
 $ curl -s http://localhost:8000/students
 [
   {
@@ -77,21 +94,21 @@ $ curl -s http://localhost:8000/students
 
 Get a single student:
 
-```
+```bash
 $ curl -s http://localhost:8000/students/ruanb
 [{"userid":"ruanb","email":"ruanb@localhost"}]
 ```
 
 Register a student:
 
-```
+```bash
 $ curl -XPOST -H 'Content-Type: application/json' http://localhost:8000/students -d '{"userid": "frankp", "email": "frankp@localhost"}'
 {"userid":"frankp","email":"frankp@localhost"}
 ```
 
 Delete a student:
 
-```
+```bash
 $ curl -XDELETE http://localhost:8000/students/ruanb
 {"msg":"deleted ruanb"}
 ```
