@@ -13,3 +13,5 @@ starlette==0.16.0
 toml==0.10.2
 typing-extensions==3.10.0.2
 wsproto==1.0.0
+pytest==7.0.1
+requests==2.27.1
